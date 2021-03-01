@@ -9,6 +9,13 @@ const Club = (props) => {
             <h4>Club Details</h4>
             <p>Players Added: {club.length}</p>
             <p>Total Salary: ${total}</p>
+            <br/>
+            <h4>Added Players Details</h4>
+            <ol>
+                {
+                    club.map(player => <li>{player.name} ${player.salary}</li>)
+                }
+            </ol>
         </div>
     );
 };

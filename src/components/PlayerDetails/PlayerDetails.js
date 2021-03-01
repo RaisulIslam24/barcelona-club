@@ -1,11 +1,12 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faPlus } from '@fortawesome/free-solid-svg-icons'
+import { faUserPlus } from '@fortawesome/free-solid-svg-icons'
 import './PlayerDetails.css'
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 const PlayerDetails = (props) => {
     const {img, name, salary} = props.player;
+    const [isClicked, setIsClicked] = useState(false);
     return (
         <div className="player">
             <div>
@@ -17,10 +18,14 @@ const PlayerDetails = (props) => {
                 <p>Salary: ${salary}</p>
                 <br/>
                 <button
+                    disabled={isClicked}
                     className="btn btn-danger"
-                    onClick={() => props.handleAddPlayer(props.player)}
+                    onClick={() => {props.handleAddPlayer(props.player)
+                    setIsClicked(true)
+                }}
                     >
-                        <FontAwesomeIcon icon={faPlus} /> Add Player
+                        <FontAwesomeIcon icon={faUserPlus} />
+                        {isClicked ? " Already added" : " Add Player"}
                     </button>
             </div>
         </div>
