@@ -13,7 +13,7 @@ const Club = (props) => {
             <h4>Added Players Details</h4>
             <ol>
                 {
-                    club.map(player => <li>{player.name} ${player.salary}</li>)
+                    club.map(player => <li>{player.name} - ${player.salary}</li>)
                 }
             </ol>
         </div>
